@@ -28,13 +28,6 @@ POST /tts                → Text-to-speech API
 
 ---
 
-## ❌ REMOVED SECTIONS
-- ❌ Data upload/processing (`/data`, `/data/upload`, `/data/url`, `/data/process`)
-- ❌ Model training (`/model`, `/analysis/train`, `/analysis/evaluate`, `/analysis/train-all`)
-- ❌ Soil analysis (`/soil`, `/analysis/soil`)
-- ❌ Micronutrient analysis (`/micronutrient`)
-- ❌ Crop prediction form (`/prediction`)
-- ❌ All dataset loading and ML model training code
 
 ---
 
@@ -94,17 +87,7 @@ POST /tts                → Text-to-speech API
 - 📁 **File Upload** - Upload pre-taken photos
 - 🎬 **Test Mode** - Test camera functionality
 
-### Accessible Plant Types
-The system can detect diseases for:
-- Wheat
-- Rice  
-- Corn
-- Potato
-- Tomato
-- Apple
-- Grapes
-- Cotton
-- And many others via the AI model
+
 
 ---
 
@@ -204,13 +187,6 @@ fetch_and_store_iot_data()  → Get current sensor readings
 - ✅ Chatbot assistant
 - ✅ Responsive dashboard
 
-### Removed ❌
-- ❌ Dataset management
-- ❌ Model training pipeline
-- ❌ Manual crop recommendations
-- ❌ Soil/micronutrient analysis forms
-
----
 
 ## Next Steps
 
