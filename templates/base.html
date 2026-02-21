@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CropAssistAI - Smart Farming</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</head>
+<body>
+
+<nav class="navbar">
+    <span class="logo">🔬 PLANT DISEASE DETECTION</span>
+    <a href="/">Dashboard</a>
+    <a href="/leaf">Disease Detection</a>
+</nav>
+
+<div class="container">
+
+    {% block content %}{% endblock %}
+
+    <!-- Crop Assist Chatbot Section (collapsible) -->
+    <div id="chatbot-fab" style="position:fixed;bottom:40px;right:30px;z-index:1100;width:60px;height:60px;background:#4CAF50;border-radius:50%;box-shadow:0 2px 8px rgba(0,0,0,0.18);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:box-shadow 0.2s;">
+        <span style="font-size:30px;color:#fff;">🤖</span>
+    </div>
+    <div id="chatbot-section" style="position:fixed;bottom:110px;right:30px;width:350px;max-width:90vw;z-index:1000;display:none;flex-direction:column;">
+        <div style="background:#fff;border-radius:10px 10px 0 0;box-shadow:0 2px 8px rgba(0,0,0,0.2);padding:10px 15px;display:flex;align-items:center;justify-content:space-between;">
+            <strong>Plant Health Assistant 🤖</strong>
+            <button id="chatbot-close" style="background:none;border:none;font-size:20px;cursor:pointer;color:#888;">&times;</button>
+        </div>
+        <div id="chatbot-window" style="background:#f9f9f9;height:300px;overflow-y:auto;padding:10px;border:1px solid #ddd;border-top:none;"></div>
+        <form id="chatbot-form" style="display:flex;border:1px solid #ddd;border-top:none;background:#fff;border-radius:0 0 10px 10px;align-items:center;gap:6px;min-width:0;">
+            <select id="chatbot-lang" title="Select language" style="padding:6px 4px;border-radius:6px 0 0 10px;border:none;background:#f1f1f1;font-size:14px;min-width:90px;flex:0 0 90px;">
+                <option value="en-US">English</option>
+                <option value="hi-IN">Hindi</option>
+                <option value="mr-IN">Marathi</option>
+                <option value="bn-IN">Bengali</option>
+                <option value="ta-IN">Tamil</option>
+                <option value="te-IN">Telugu</option>
+                <option value="gu-IN">Gujarati</option>
+                <option value="pa-IN">Punjabi</option>
+                <option value="ur-IN">Urdu</option>
+                <option value="kn-IN">Kannada</option>
+                <option value="ml-IN">Malayalam</option>
+            </select>
+            <input type="text" id="chatbot-input" placeholder="Ask your farming question..." style="flex:1 1 0%;min-width:0;padding:8px;border:none;outline:none;">
+            <button type="button" id="chatbot-mic" title="Speak" style="padding:8px 10px;background:#e0f7fa;border:none;cursor:pointer;font-size:18px;">🎤</button>
+            <button type="submit" style="padding:8px 15px;background:#4CAF50;color:#fff;border:none;border-radius:0 0 10px 0;cursor:pointer;">Send</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    Smart Farming with AI · CropAssistAI 2026 · Precision Agriculture Platform
+</footer>
+
+</body>
+</html>

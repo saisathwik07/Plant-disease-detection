@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="margin-bottom: 8px;">📊 Data Management</h2>
+<p style="color: #666; font-size: 14px; margin-bottom: 32px; font-weight: 500;">
+    Upload and manage agricultural datasets for model training
+</p>
+
+<div class="card">
+    <h3>Upload Dataset</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 16px;">Select a CSV file from your computer</p>
+    <input type="file" id="dataset" accept=".csv">
+    <button onclick="uploadDataset()" style="width: 100%; margin-top: 16px; margin-right: 0;">Upload Dataset</button>
+</div>
+
+<div class="card">
+    <h3>Load from URL</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 16px;">Enter a CSV file URL</p>
+    <input type="text" id="dataurl" placeholder="https://example.com/data.csv">
+    <button onclick="loadFromURL()" style="width: 100%; margin-top: 16px; margin-right: 0;">Load from URL</button>
+</div>
+
+<div class="card">
+    <h3>Process Dataset</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 16px;">Prepare and process the uploaded dataset</p>
+    <button onclick="processDataset()" style="width: 100%; margin-right: 0;">Process Dataset</button>
+</div>
+
+<div class="card">
+    <h3>Results</h3>
+    <div id="dataResult" style="min-height: 100px;"></div>
+</div>
+
+{% endblock %}

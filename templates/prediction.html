@@ -1,0 +1,104 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="margin-bottom: 8px;">🔬 Plant Disease Prediction</h2>
+<p style="color: #666; font-size: 14px; margin-bottom: 32px; font-weight: 500;">
+    AI-powered disease detection based on environmental conditions and plant health indicators
+</p>
+
+<div class="card">
+    <h3>Plant Information</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 20px;">Enter plant type and current conditions</p>
+    
+    <div class="grid">
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Plant Type</label>
+            <select id="plant_type" style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                <option value="">-- Select Plant Type --</option>
+                <option value="wheat">Wheat</option>
+                <option value="rice">Rice</option>
+                <option value="corn">Corn</option>
+                <option value="potato">Potato</option>
+                <option value="tomato">Tomato</option>
+                <option value="apple">Apple</option>
+                <option value="grapes">Grapes</option>
+                <option value="cotton">Cotton</option>
+            </select>
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Temperature - °C</label>
+            <input type="number" placeholder="20.0" id="temperature">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Humidity - %</label>
+            <input type="number" placeholder="60.0" id="humidity">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Rainfall - mm</label>
+            <input type="number" placeholder="0.0" id="rainfall">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Soil pH</label>
+            <input type="number" placeholder="6.5" id="ph" step="0.1" min="0" max="14">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Days Since Planting</label>
+            <input type="number" placeholder="30" id="days_since_planting">
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <h3>Plant Health Observations</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 20px;">Leaf condition and visible symptoms (0-10, where 0 is healthy)</p>
+    
+    <div class="grid">
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Leaf Discoloration (0-10)</label>
+            <input type="range" id="leaf_discoloration" min="0" max="10" value="0" style="width: 100%;">
+            <span id="leaf_discoloration_val">0</span>
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Leaf Spots (0-10)</label>
+            <input type="range" id="leaf_spots" min="0" max="10" value="0" style="width: 100%;">
+            <span id="leaf_spots_val">0</span>
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Wilting (0-10)</label>
+            <input type="range" id="wilting" min="0" max="10" value="0" style="width: 100%;">
+            <span id="wilting_val">0</span>
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Yellowing (0-10)</label>
+            <input type="range" id="yellowing" min="0" max="10" value="0" style="width: 100%;">
+            <span id="yellowing_val">0</span>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <button type="button" onclick="predictDisease()" style="width: 100%; background: #2d6a4f; color: white; padding: 12px; border: none; border-radius: 4px; cursor: pointer; font-weight: 700; font-size: 14px;">Analyze for Disease Risk</button>
+</div>
+
+<div class="card">
+    <h3>Disease Analysis Results</h3>
+    <div id="diseaseResult" style="min-height: 100px;"></div>
+</div>
+
+<script>
+// Update slider values display
+document.getElementById('leaf_discoloration').addEventListener('input', function() {
+    document.getElementById('leaf_discoloration_val').textContent = this.value;
+});
+document.getElementById('leaf_spots').addEventListener('input', function() {
+    document.getElementById('leaf_spots_val').textContent = this.value;
+});
+document.getElementById('wilting').addEventListener('input', function() {
+    document.getElementById('wilting_val').textContent = this.value;
+});
+document.getElementById('yellowing').addEventListener('input', function() {
+    document.getElementById('yellowing_val').textContent = this.value;
+});
+</script>
+
+{% endblock %}

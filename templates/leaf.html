@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="margin-bottom: 8px;">🍃 Disease Detection</h2>
+<p style="color: #666; font-size: 14px; margin-bottom: 32px; font-weight: 500;">
+    Analyze plant leaves using AI to detect diseases and assess plant health
+</p>
+
+<!-- CAMERA SECTION -->
+<div class="card">
+    <h3>Camera Capture</h3>
+    
+    <div style="margin: 24px 0;">
+        <p style="font-size: 13px; color: #777; margin-bottom: 16px;">📷 Use your device camera to capture a leaf image</p>
+        <div style="background: #fafafa; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #e8e8e8;">
+            <video id="camera" autoplay playsinline style="display: none;"></video>
+            <canvas id="snapshot" style="width: 100%; max-width: 100%; display: block; background: #f5f5f5; border-radius: 10px;"></canvas>
+        </div>
+    </div>
+    
+    <div class="button-group">
+        <button id="startCameraBtn" onclick="startCamera()">Start Camera</button>
+        <button onclick="captureImage()">Capture Image</button>
+        <button onclick="analyzeImage()">Analyze</button>
+        <button id="testCameraBtn" onclick="testCamera()" style="background:#f7f7f7;color:#333;border:1px solid #e0e0e0;margin-left:8px;">Test Camera</button>
+    </div>
+    <div id="cameraStatus" style="margin-top:12px; font-size:13px; color:#555;">Camera status will appear here</div>
+</div>
+
+<!-- UPLOAD SECTION -->
+<div class="card">
+    <h3>Upload Image</h3>
+    
+    <div style="margin: 24px 0;">
+        <p style="font-size: 13px; color: #777; margin-bottom: 16px;">📁 Select a leaf image from your device</p>
+        <input type="file" id="imageUpload" accept="image/*" placeholder="Choose image...">
+        <button onclick="analyzeUploadedImage()" style="width: 100%; margin-top: 16px; margin-right: 0;">Analyze Image</button>
+    </div>
+</div>
+
+<!-- RESULTS SECTION -->
+<div class="card">
+    <h3>Analysis Results</h3>
+    <div id="leafResult" style="min-height: 120px; display: flex; align-items: center; justify-content: center;">
+        <p style="color: #aaa; font-size: 14px; font-weight: 500;">⏳ Results will appear here...</p>
+    </div>
+</div>
+
+{% endblock %}

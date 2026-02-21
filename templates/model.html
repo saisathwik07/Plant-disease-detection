@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="margin-bottom: 8px;">🤖 Model Training</h2>
+<p style="color: #666; font-size: 14px; margin-bottom: 32px; font-weight: 500;">
+    Train and evaluate machine learning models for crop prediction
+</p>
+
+<div class="card">
+    <h3>Overview</h3>
+    <p style="color: #777; font-size: 14px; line-height: 1.6;">
+        This system trains multiple machine learning algorithms including Random Forest, Gradient Boosting, 
+        and Neural Networks to automatically select the best-performing model for accurate crop yield predictions 
+        based on soil and environmental parameters.
+    </p>
+</div>
+
+<div class="card">
+    <h3>Training</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 20px;">Train all models and automatically select the best performer</p>
+    <button type="button" onclick="trainAllModels()" style="width: 100%; margin-right: 0;">Start Training</button>
+</div>
+
+<div class="card">
+    <h3>Results</h3>
+    <div id="modelResult" style="min-height: 100px;"></div>
+</div>
+
+{% endblock %}

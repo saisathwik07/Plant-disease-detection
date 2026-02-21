@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="margin-bottom: 8px;">🧪 Soil Analysis</h2>
+<p style="color: #666; font-size: 14px; margin-bottom: 32px; font-weight: 500;">
+    Comprehensive soil health assessment with micronutrient analysis
+</p>
+
+<div class="card">
+    <h3>Micronutrient Levels</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 20px;">Enter soil micronutrient concentrations (mg/kg)</p>
+    
+    <div class="grid">
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Iron (Fe)</label>
+            <input type="number" placeholder="0.0" id="Iron">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Zinc (Zn)</label>
+            <input type="number" placeholder="0.0" id="Zinc">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Copper (Cu)</label>
+            <input type="number" placeholder="0.0" id="Copper">
+        </div>
+        <div>
+            <label style="display: block; font-weight: 700; color: #2d6a4f; margin-bottom: 8px; font-size: 13px;">Boron (B)</label>
+            <input type="number" placeholder="0.0" id="Boron">
+        </div>
+    </div>
+    
+    <button type="button" onclick="analyzeSoil()" style="width: 100%; margin-top: 24px; margin-right: 0;">Analyze Soil</button>
+</div>
+
+<div class="card">
+    <h3>Soil Health Report</h3>
+    <div id="soilResult" style="min-height: 100px;"></div>
+</div>
+
+<div class="card">
+    <h3>Micronutrient Distribution</h3>
+    <div style="text-align: center; min-height: 100px;">
+        <img id="soilGraph" style="max-width: 100%; height: auto;">
+    </div>
+</div>
+
+{% endblock %}

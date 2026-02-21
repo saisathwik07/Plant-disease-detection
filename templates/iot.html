@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2 style="margin-bottom: 8px;">📡 IoT Monitoring</h2>
+<p style="color: #666; font-size: 14px; margin-bottom: 32px; font-weight: 500;">
+    Real-time monitoring of farm sensor data and environmental conditions
+</p>
+
+<div class="card">
+    <h3>System Control</h3>
+    <p style="font-size: 13px; color: #777; margin-bottom: 20px;">Start or stop IoT data collection</p>
+    <button onclick="toggleIoT()" style="width: 100%; margin-right: 0;">Toggle IoT System</button>
+</div>
+
+<div class="card">
+    <h3>Live Sensor Data</h3>
+    <div id="iotData" style="min-height: 100px;"></div>
+</div>
+
+<script>
+setInterval(fetchIoT, 3000)
+</script>
+
+{% endblock %}
